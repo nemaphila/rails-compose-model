@@ -15,7 +15,7 @@ Ruby on Rails の開発環境を Docker で構築する。各技術スタック�
 - [PostgreSQL](https://hub.docker.com/_/postgres/)
 - [Ruby on Rails](https://github.com/rails/rails/releases)
 
-## インストール
+## インストールからアプリケーションの起動まで
 
 ディレクトリ名を任意のアプリケーション名に変更する。
 
@@ -38,3 +38,25 @@ rails new 任意のアプリケーション名 -d postgresql
 cd 任意のアプリケーション名
 ```
 
+config/database.yml を開き、次のように追記する。
+
+```diff
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
++  host: db
++  username: postgres
++  password: password
+```
+
+データベースを作成し、アプリケーションを起動する。
+
+```shell
+rails db:create
+rails s -b 0.0.0.0
+```
+
+[localhost:3000](http://localhost:3000/) で問題なく動作することを確認する。
