@@ -58,9 +58,9 @@ web コンテナにログイン後、Rails アプリケーションを作成す�
 cd 任意のアプリケーション名
 rails new . -f -d postgresql
 ```
-.gitignore を開き、次のように追記する。
-```diff
-+ .env
+.env ファイルを Git 管理対象外とする。
+```shell
+echo .env >> .gitignore
 ```
 Gemfile を開き、次のように追記する。
 ```diff
