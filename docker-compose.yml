@@ -3,10 +3,11 @@ services:
   db:
     image: postgres:13.2-alpine
     environment:
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - ./db-volume:/var/lib/postgresql/data
   web:
     build: .
     command: /bin/sh
@@ -14,7 +15,7 @@ services:
       WEBPACKER_DEV_SERVER_HOST: "0.0.0.0"
       RAILS_SERVE_STATIC_FILES: "1"
     volumes:
-      - ./apps:/apps
+      - .:/apps/${APPLICATION_NAME}
     ports:
       - "3000:3000"
     depends_on:

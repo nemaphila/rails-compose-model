@@ -1,7 +1,6 @@
 #!/bin/bash
 
-mkdir -p tmp/db
-mkdir apps
+mkdir -p db-volume
 touch Gemfile.lock
 docker-compose build --no-cache
 docker-compose up -d

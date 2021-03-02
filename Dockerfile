@@ -21,8 +21,6 @@ RUN echo 'gem: -N' > ~/.gemrc
 RUN bundle update --bundler
 RUN bundle install
 
-COPY ./apps /apps
-
 USER devel
 
 RUN openssl rand -hex 64 > /home/devel/.secret_key_base
