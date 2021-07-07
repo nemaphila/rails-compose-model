@@ -1,6 +1,6 @@
 # Rails Compose Model
 
-Ruby on Rails の開発環境を Docker で構築する。各技術スタックは、2021年3月2日現在の最新バージョンに対応している。
+Ruby on Rails の開発環境を Docker で構築する。
 
 ## 技術スタック
 
