@@ -6,8 +6,8 @@ Ruby on Rails の開発環境を Docker で構築する。各技術スタック�
 
 - Alpine Linux 3.13.1
 - Ruby: 3.0.1
-- PostgreSQL: 13.2
-- Ruby on Rails: 6.1.3.1
+- PostgreSQL: 13.3
+- Ruby on Rails: 6.1.4
 
 ### 参照: 最新バージョンの確認
 
